@@ -38,6 +38,12 @@ def handle_hello():
 
     return jsonify(members), 200
 
+@app.route('/members/<int:id>', methods=['GET'])
+def get_member(id):
+
+    member = jackson_family.get_member(id)
+    return jsonify(member), 200
+
 
 @app.route("/member", methods=["POST"])
 def add_member():
